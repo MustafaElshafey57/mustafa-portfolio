@@ -2,62 +2,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Navigation active link + shadow
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('nav ul li a');
+  const nav = document.querySelector('nav');
+  const menuToggle = document.querySelector('.menu-toggle'); // زرار الهامبورجر
+  const navUl = document.querySelector('nav ul');            // القايمة نفسها
 
   function setActiveLink() {
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 150;
-      if(window.scrollY >= sectionTop) current = section.getAttribute('id');
+      if (window.scrollY >= sectionTop) current = section.getAttribute('id');
     });
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
     });
 
-    const nav = document.querySelector('nav');
-    if(window.scrollY > 50) nav.classList.add('scrolled');
+    if (window.scrollY > 50) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   }
+
   window.addEventListener('scroll', setActiveLink);
   setActiveLink();
 
-  // Skills details
+  // ✅ Toggle menu on mobile
+  menuToggle.addEventListener('click', () => {
+    navUl.classList.toggle('show');
+    menuToggle.classList.toggle('open');
+  });
 
-//     "Excel": `📊 Excel Skills:
-// • Data Cleaning & Transformation (Power Query)
-// • Advanced Formulas & Functions (VLOOKUP, INDEX/MATCH, SUMIFS)
-// • Pivot Tables & Pivot Charts
-// • Power Pivot & DAX Measures
-// • Dashboard Design & Reporting`,
+  // ✅ Close menu when clicking a link
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navUl.classList.remove('show');
+      menuToggle.classList.remove('open');
+    });
+  });
 
-//     "SQL": `🗄 SQL Skills:
-// • Data Querying (SELECT, WHERE, JOIN)
-// • Aggregation (GROUP BY, HAVING, COUNT, AVG)
-// • Subqueries & CTEs
-// • Data Cleaning & Transformation
-// • Database Design & Normalization`,
-
-//     "Power BI": `📈 Power BI Skills:
-// • Data Import & Power Query
-// • Data Modeling & Relationships
-// • DAX Measures & Calculated Columns
-// • Interactive Dashboards & Reports
-// • Visualizations & KPIs
-// • Publishing & Sharing`,
-
-//     "Tableau": `📊 Tableau Skills:
-// • Data Connection & Preparation
-// • Calculated Fields & LOD Expressions
-// • Interactive Dashboards & Storytelling
-// • Visualizations (Charts, Maps, KPIs)
-// • Filtering & Drill-Down Analysis`,
-
-//     "Python": `🐍 Python Skills:
-// • Data Manipulation (Pandas, NumPy)
-// • Visualization (Matplotlib, Seaborn, Plotly)
-// • Data Cleaning & Analysis
-// • Working with Excel/SQL Data
-// • Basic Statistics & Automation`
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -129,5 +109,4 @@ document.addEventListener('click', () => {
 });
 
 });
-
 

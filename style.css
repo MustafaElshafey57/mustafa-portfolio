@@ -261,14 +261,26 @@ nav {
 .about-contact a.github { background: #333; }
 .about-contact a.whatsapp { background: #25D366; }
 
-/* =========================
-   Responsive
-========================= */
 @media (max-width: 992px) {
   #about {
     flex-direction: column;
     text-align: center;
     padding: 50px 20px;
+  }
+
+  #about .right {
+    order: -1; /* ✅ الصورة تيجي الأول */
+    margin-bottom: 1.5rem; /* مسافة صغيرة تحت الصورة */
+  }
+
+  #about .right img {
+    width: 100%;           /* ✅ تملأ عرض الشاشة */
+    max-width: 320px;      /* حد أقصى عشان ما تبقاش كبيرة زيادة */
+    height: auto;          /* يحافظ على التناسق */
+    border-radius: 12px;   /* زوايا ناعمة */
+    object-fit: cover;     /* يظبط أبعاد الصورة */
+    margin: 0 auto;        /* يخليها في النص */
+    display: block;
   }
 
   #about .left {
@@ -292,6 +304,7 @@ nav {
     margin-top: 1rem;
   }
 }
+
 
 
 /* ========================= Skills Section ========================= */
@@ -569,6 +582,33 @@ nav {
   .section-title-skill {
     font-size: 1.6rem;
   }
+}
+/* ========================= Skill Details ========================= */
+.skill-details {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 200px;   /* ارتفاع مبدئي مريح */
+  max-height: none;    /* ✅ نشيل الحد الأقصى */
+  overflow-y: visible; /* ✅ يظهر كله من غير Scroll */
+}
+
+.skill-details h3 {
+  color: #13678A;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.skill-details p {
+  flex-grow: 1;
+  line-height: 1.6;
+  color: #333;
 }
 
 /* =========================
