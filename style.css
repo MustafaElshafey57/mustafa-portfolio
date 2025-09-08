@@ -1,0 +1,539 @@
+/* =========================
+   Base Reset
+========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: 'Roboto', sans-serif; 
+  line-height: 1.6; 
+  color: #333; 
+  background: #f9f9f9; 
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* =========================
+   Navigation
+========================= */
+nav {
+  position: fixed;
+  top: 0; width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.nav-container {
+  display: flex; justify-content: center; align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.nav-inner {
+  display: flex; align-items: center; gap: 40px;
+}
+
+.logo img { height: 60px; }
+.separator { width: 1px; height: 35px; background: #ccc; }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin: 0 1.5rem; position: relative; }
+
+.nav-links li a {
+  font-weight: 500; color: #10454F;
+  transition: color 0.3s, transform 0.3s;
+}
+.nav-links li a:hover { color:#13678A; transform: scale(1.1); }
+.nav-links li a::after {
+  content:''; display:block; height:2px; width:0;
+  background:#45214A; transition:0.3s; margin-top:3px;
+}
+.nav-links li a:hover::after,
+.nav-links li a.active::after { width:100%; }
+
+/* =========================
+   Section Titles (Shared)
+========================= */
+.section-title, .section-title-skill, .section-title-contact {
+  font-family: "Lato";
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 30px 0 20px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  line-height: 1.2;
+  word-break: break-word;
+  animation: fadeUp 0.8s ease forwards;
+  position: relative;
+}
+.section-title::after,
+.section-title-skill::after,
+.section-title-contact::after {
+  content: "";
+  display: block;
+  width: 80px; height: 4px;
+  margin: 12px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  transition: width 0.3s ease;
+}
+.section-title:hover::after,
+.section-title-skill:hover::after,
+.section-title-contact:hover::after { width: 120px; }
+
+/* ألوان حسب القسم */
+.section-title { color: #161B22; }
+.section-title-skill { color: #F7F9FA; margin-top: 150px; }
+.section-title-contact { color: #0b4a6b; }
+
+/* =========================
+   About Me
+========================= */
+#about {
+  display: flex; justify-content: space-between;
+  padding: 5% 5% 0;
+  background-color: #F7F9FA;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+#about .left {
+  flex:1; display:flex; flex-direction:column;
+  justify-content:center; align-items:flex-start;
+  padding-right:2%; margin-bottom:20px; 
+}
+#about .left h2 { font-size:4rem; color:#10454F; font-weight:700; }
+#about .left h3 { font-size:2.8rem; color:#13678A; font-weight:500; }
+#about .left p { font-size:1.2rem; color:#555; margin-bottom:1.5rem; }
+
+.resume-btn {
+  display:inline-block; margin:0.5rem 0; padding:0.5rem 1rem;
+  background:#13678A; color:#fff; border-radius:5px; font-weight:500;
+  transition:0.3s;
+}
+.resume-btn:hover { background:#10454F; transform:translateY(-2px); }
+
+.about-contact a {
+  display:inline-block; margin:0 0.4rem;
+  padding:0.5rem 0.7rem; border-radius:5px;
+  transition: transform 0.3s; color:#fff; font-size:1rem;
+}
+.about-contact a:hover { transform:translateY(-3px); }
+.about-contact a.email { background:#D44638; }
+.about-contact a.linkedin { background:#0077B5; }
+.about-contact a.github { background:#333; }
+.about-contact a.whatsapp { background:#25D366; }
+
+/* ========================= Skills Section ========================= */
+#skills {
+  background-color: #161B22; /* الخلفية الأساسية */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                    radial-gradient(rgba(32, 226, 215, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #F7F9FA;
+  margin: 0;
+  padding: 50px 20px;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85) url("skills3.jpeg") no-repeat center center;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+}
+
+/* ========================= Section Titles ========================= */
+.section-title-skill {
+  font-family: "Segoe UI";
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #F7F9FA;
+  margin: 30px 0 20px 0;
+  position: relative;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  line-height: 1.2;
+  word-break: break-word;
+  animation: fadeUp 0.8s ease forwards;
+  margin-top: 35px;
+}
+
+.section-title-skill::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  transition: width 0.3s ease;
+}
+
+.section-title-skill:hover::after {
+  width: 120px;
+}
+
+
+/* ========================= Skills List ========================= */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ========================= Skill Cards ========================= */
+.skill-card {
+  position: relative;
+  background: #161B22;
+  border-radius: 12px;
+  padding: 12px 20px; /* قللت البادينج كمان */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+
+  min-height: 70px;  /* كان 100px */
+  max-height: 70px;  /* نفس القيمة عشان الحجم يفضل ثابت */
+  overflow: hidden;
+}
+
+
+.skill-card i {
+  font-size: 1.8rem;
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  width: 300px;
+}
+
+.skill-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.skill-card::after {
+  content: "Click for more";
+  position: absolute;
+  bottom: 8px;
+  right: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #007bff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+/* Excel */
+.skill-card.excel i { color: #217346; }
+.skill-card.excel .skill-name { color: #217346; }
+.skill-card.excel:hover { background: #e6f4ea; border-left: 6px solid #217346; }
+
+/* SQL */
+.skill-card.sql i { color: #2f4f6f; }
+.skill-card.sql .skill-name { color: #306998; }
+.skill-card.sql:hover { background: #eef3f9; border-left: 6px solid #2f4f6f; }
+
+/* Power BI */
+.skill-card.powerbi i { color: #f2c811; }
+.skill-card.powerbi .skill-name { color: #f2d40c; }
+.skill-card.powerbi:hover { background: #fff9e6; border-left: 6px solid #f2c811; }
+
+/* Python */
+.skill-card.python i { color: #306998; }
+.skill-card.python .skill-name { color: #2f6fe0; }
+.skill-card.python:hover {
+  background: linear-gradient(90deg, #f7df1e20, #30699820);
+  border-left: 6px solid #306998;
+}
+
+/* Tableau */
+.skill-card.tableau i { color: #e97627; }
+.skill-card.tableau .skill-name { color: #f28c11; }
+.skill-card.tableau:hover { background: #fff4ec; border-left: 6px solid #e97627; }
+
+/* ========================= Skill Details ========================= */
+.skills-image img,
+.skill-details {
+  width: 100%;
+  min-height: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.skill-details {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 180px;   /* ارتفاع مبدئي مريح */
+  max-height: 400px;   /* أقصى ارتفاع */
+  overflow-y: auto;    /* Scroll لو المحتوى زاد */
+}
+
+.skill-details h3 {
+  color: #13678A;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.skill-details p {
+  flex-grow: 1;
+  line-height: 1.6;
+  color: #333;
+}
+
+#backBtn {
+  align-self: flex-end;
+  padding: 8px 18px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 15px;
+}
+
+#backBtn:hover {
+  background: linear-gradient(90deg, #0056b3, #009edc);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/* =========================
+   Projects Section
+========================= */
+#projects {
+  background-color: #F7F9FA;
+  background-image: url("skills3.jpeg");
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 أعمدة */
+  gap: 1rem; /* ✅ مسافة أصغر بين الكروت */
+  margin-top: 2rem;
+}
+
+.project {
+  background: #161B22;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  cursor: pointer;
+
+  /* ✅ حجم أكبر + مساحة ثابتة */
+  max-width: 380px;
+  min-height: 380px;
+  max-height: 380px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.project img {
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  height: 180px;      /* ✅ صورة موحدة */
+  object-fit: cover;
+  width: 100%;
+}
+
+.project h3 {
+  color: #0b47b3;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem; /* أكبر شوية */
+}
+
+.project p {
+  color: #ddd;
+  font-size: 0.9rem;
+  flex-grow: 1; /* ✅ النص ياخد المساحة الباقية */
+}
+
+.project.expanded {
+  grid-column: 1 / -1;
+  width: 95%;
+  max-width: 900px;
+  margin: auto;
+  padding: 1.5rem;
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+.backBtn {
+  display: none;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 8px 18px;
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.backBtn:hover {
+  background: linear-gradient(90deg, #0056b3, #009edc);
+  transform: translateY(-2px);
+}
+
+.project.expanded .backBtn {
+  display: block;
+}
+
+.projects-container.hide-others .project:not(.expanded) {
+  display: none;
+}
+/* الوضع العادي */
+.project img {
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+  height: 180px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* الوضع الموسع */
+.project.expanded {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;        /* نشيل الحد الأقصى */
+  min-height: 80vh;       /* يغطي معظم الشاشة */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;             /* نشيل البادينج */
+  background: transparent;/* الخلفية تبقى شفافة */
+  box-shadow: none;       /* نشيل الشادو عشان الصورة تبان */
+}
+
+.project.expanded img {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh;
+  object-fit: contain;    /* يخلي الصورة كاملة من غير قص */
+  border-radius: 12px;
+  margin: 0;
+}
+
+/* نخفي النصوص في الوضع الموسع */
+.project.expanded h3,
+.project.expanded p {
+  display: none;
+}
+
+/* زرار الرجوع */
+.project.expanded .backBtn {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+
+
+/* =========================
+   Education Section
+========================= */
+#education { background:#F7F9FA; }
+.edu-container { max-width:800px; margin:2rem auto; }
+.edu-item {
+  background:rgba(255,255,255,0.85) url("skills3.jpeg") center/cover no-repeat;
+  backdrop-filter:blur(8px);
+  border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  padding:2rem; margin-bottom:1rem;
+}
+.edu-item h3 { color:#0b47b3; }
+.edu-item span { color:#777; font-size:0.9rem; }
+.edu-item p { color:#555; font-size:0.95rem; }
+
+/* =========================
+   Contact Section
+========================= */
+#contact { background:#161B22; }
+.contact-container { text-align:center; }
+.contact-container a {
+  display:inline-block; margin:0.5rem; padding:0.7rem 1.2rem;
+  color:#fff; border-radius:5px; transition:0.3s;
+}
+.contact-container a:hover { transform:translateY(-3px); }
+.contact-container a.email { background:#D44638; }
+.contact-container a.linkedin { background:#0077B5; }
+.contact-container a.github { background:#333; }
+.contact-container a.whatsapp { background:#25D366; }
+
+/* =========================
+   Footer
+========================= */
+footer {
+  text-align:center; padding:1rem 0;
+  background:#F7F9FA; color:#555;
+}
+
+/* =========================
+   Section Divider
+========================= */
+section {
+  padding: 60px 20px;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+section::after {
+  content:""; position:absolute; bottom:0; left:50%;
+  transform:translateX(-50%);
+  width:80%; height:1px;
+  background:linear-gradient(90deg,transparent,#13678A,transparent);
+  opacity:0.4;
+}

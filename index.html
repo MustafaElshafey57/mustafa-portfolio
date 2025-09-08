@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa Elshafey - Data Analyst Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#home" class="logo"><img src="logo.png" alt="Logo"></a>
+      <div class="separator"></div>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- About Me -->
+  <section id="about">
+    <div class="left">
+      <h2>Mustafa Elshafey</h2>
+      <h3>Data Analyst</h3>
+      <p>
+        Freelance Data Analyst Specialist, helping businesses turn data into actionable insights. Skilled in
+        <b>Excel</b>, <b>SQL</b>, <b>Power BI</b>, <b>Python</b>, and <b>Tableau</b> with experience in creating custom dashboards, cleaning datasets, and delivering clear reports.
+      </p>
+      <a href="My Resume.pdf" class="resume-btn" target="_blank">Open Resume</a>
+<div class="about-contact">
+  <a href="mailto:mustafa.elshafey57@gmail.com" class="email">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/mustafa-elshafey-ba540823a/" target="_blank" class="linkedin">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://github.com/MustafaElshafey57" target="_blank" class="github">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://wa.me/201286004498" target="_blank" class="whatsapp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+    </div>
+    <div class="right">
+      <img src="myphoto.png" alt="Mustafa Elshafey">
+    </div>
+  </section>
+
+   <!-- Skills -->
+<section id="skills">
+  <div>
+    <h2 class="section-title-skill">Skills behind the insights</h2>
+  </div>
+  <div class="skills-container">
+
+    <!-- العمود الشمال: المهارات -->
+    <div class="skills-list">
+      
+
+
+      <div class="skill-card excel" onclick="showDetails('excel')">
+        <i class="fas fa-file-excel"></i>
+        <span class="skill-name">Excel</span>
+      </div>
+
+      <div class="skill-card sql" onclick="showDetails('sql')">
+        <i class="fas fa-database"></i>
+        <span class="skill-name">SQL</span>
+      </div>
+
+      <div class="skill-card powerbi" onclick="showDetails('powerbi')">
+        <i class="fas fa-chart-line"></i>
+        <span class="skill-name">Power BI</span>
+      </div>
+
+      <div class="skill-card python" onclick="showDetails('python')">
+        <i class="fab fa-python"></i>
+        <span class="skill-name">Python</span>
+      </div>
+
+      <div class="skill-card tableau" onclick="showDetails('tableau')">
+        <i class="fas fa-chart-pie"></i>
+        <span class="skill-name">Tableau</span>
+      </div>
+    </div>
+
+    <!-- العمود اليمين: الصورة / التفاصيل -->
+    <div class="skills-image" id="skillDisplay">
+      <img src="data.png" alt="Data Illustration" id="skillImage">
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- Projects -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-container">
+
+    <div class="project">
+      <img src="superstore.png" alt="Super Store Project">
+      <h3>Super Store Sales Analysis</h3>
+      <p>Analyzed large Super Store dataset to extract sales trends, top-performing products, and regional performance using Excel and Power Pivot.</p>
+      <button class="backBtn">Back</button>
+    </div>
+
+    <div class="project">
+      <img src="sales_returns.png" alt="Sales & Returns Project">
+      <h3>Sales & Returns Dashboard</h3>
+      <p>Built an interactive dashboard to monitor sales, profit, and return rate, providing actionable insights for business decisions using Excel.</p>
+      <button class="backBtn">Back</button>
+    </div>
+
+    <div class="project">
+      <img src="hr.png" alt="HR Analytics Project">
+      <h3>HR Analytics Dashboard</h3>
+      <p>Developed an interactive HR dashboard to track employee performance, leave balances, salaries by job title, gender distribution, and average tenure, providing actionable insights.</p>
+      <button class="backBtn">Back</button>
+    </div>
+
+    <div class="project">
+      <img src="chocolate_factory.png" alt="Chocolate Factory Project">
+      <h3>Chocolate Factory Production Analysis</h3>
+      <p>Performed production and sales analysis for a chocolate factory to optimize inventory, reduce waste, and improve profitability using Excel.</p>
+      <button class="backBtn">Back</button>
+    </div>
+
+    <!-- ✅ Power BI Project -->
+    <div class="project">
+      <img src="PBi Dashboard2.PNG" alt="Power BI Sales & Returns Project">
+      <h3>Sales & Returns Analysis (Power BI)</h3>
+      <p>Implemented a complete ETL process to clean and transform sales and returns data, then built an interactive Power BI dashboard. Extracted insights including total sales, profit, return rate, yearly and monthly trends, and profitability progress compared to previous months.</p>
+      <button class="backBtn">Back</button>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Education -->
+<section id="education">
+  <h2 class="section-title">Education & Certificates</h2>
+  <div class="edu-container">
+    <div class="edu-item">
+      <h3>Professional Diploma in Data Analysis</h3>
+      <span>Digital Egypt Initiative, Skills Dynamix Center | 06/2025 – 12/2025 | Alexandria, Egypt</span>
+      <p>Intensive program covering data analytics foundations, prompt engineering, Python for data preparation, SQL for cleaning and organization, business-focused data analysis, and visualization using Tableau and Power BI.</p>
+    </div>
+    <div class="edu-item">
+      <h3>Bachelor of Electrical Engineering</h3>
+      <span>Faculty of Engineering, Cairo University | 11/2015 – 07/2020 | Cairo, Egypt</span>
+      <p>Studied core electrical engineering concepts with a strong focus on systems analysis, technical problem-solving, and data interpretation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2 class="section-title-contact">Contact Me</h2>
+  <div class="contact-container">
+    <a href="mailto:mustafa.elshafey57@gmail.com" class="email">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+    <a href="https://www.linkedin.com/in/mustafa-elshafey-ba540823a/" target="_blank" class="linkedin">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="https://github.com/MustafaElshafey57" target="_blank" class="github">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="https://wa.me/201286004498" target="_blank" class="whatsapp">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+  </div>
+</section>
+
+
+<footer>
+  &copy; 2025 Mustafa Elshafey. All rights reserved.
+</footer>
+  <!-- Projects, Education, Contact, Footer -->
+  <!-- ... نفس المحتوى السابق بدون تغيير ... -->
+
+  <script src="script.js"></script>
+  <script>
+  const detailsContent = {
+    excel: `• Data Cleaning & Transformation (Power Query)<br>
+• Advanced Formulas & Functions (VLOOKUP, INDEX/MATCH, SUMIFS)<br>
+• Pivot Tables & Pivot Charts<br>
+• Power Pivot & DAX Measures<br>
+• Dashboard Design & Reporting`,
+    
+    sql: `• Data Querying (SELECT, WHERE, JOIN)<br>
+• Aggregation (GROUP BY, HAVING, COUNT, AVG)<br>
+• Subqueries & CTEs<br>
+• Data Cleaning & Transformation<br>
+• Database Design & Normalization`,
+
+    powerbi: `• Data Import & Power Query<br>
+• Data Modeling & Relationships<br>
+• DAX Measures & Calculated Columns<br>
+• Interactive Dashboards & Reports<br>
+• Visualizations & KPIs<br>
+• Publishing & Sharing`,
+
+    tableau: `• Data Connection & Preparation<br>
+• Calculated Fields & LOD Expressions<br>
+• Interactive Dashboards & Storytelling<br>
+• Visualizations (Charts, Maps, KPIs)<br>
+• Filtering & Drill-Down Analysis`,
+
+    python: `• Data Manipulation (Pandas, NumPy)<br>
+• Visualization (Matplotlib, Seaborn, Plotly)<br>
+• Data Cleaning & Analysis<br>
+• Working with Excel/SQL Data<br>
+• Basic Statistics & Automation`
+  };
+
+  const skillTitles = {
+    excel: "📊 Excel Skills",
+    sql: "🗄 SQL Skills",
+    powerbi: "📈 Power BI Skills",
+    python: "🐍 Python Skills",
+    tableau: "📊 Tableau Skills"
+  };
+
+  const skillDisplay = document.getElementById("skillDisplay");
+  const cards = document.querySelectorAll(".skill-card");
+  const originalImage = `<img src="data.png" alt="Data Illustration" id="skillImage">`;
+
+  function showDetails(skill) {
+    skillDisplay.innerHTML = `
+      <div class="skill-details">
+        <h3>${skillTitles[skill]}</h3>
+        <p>${detailsContent[skill]}</p>
+        <button id="backBtn">Back</button>
+      </div>
+    `;
+
+    // زر العودة
+    const backBtn = document.getElementById("backBtn");
+    backBtn.addEventListener("click", () => {
+      skillDisplay.innerHTML = originalImage;
+    });
+  }
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const skill = card.classList[1];
+      showDetails(skill);
+    });
+  });
+</script>
+
+</body>
+</html>
+
