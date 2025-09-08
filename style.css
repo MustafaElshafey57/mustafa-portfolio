@@ -25,19 +25,29 @@ nav {
 }
 
 .nav-container {
-  display: flex; justify-content: center; align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* يخلي العناصر كلها قريبة من بعض في النص */
+  gap: 20px; /* مسافة بسيطة ومنظمة بين العناصر */
   padding: 0.5rem 2rem;
 }
 
-.nav-inner {
-  display: flex; align-items: center; gap: 40px;
+.logo img { height: 55px; }
+
+.separator {
+  width: 1px;
+  height: 35px;
+  background: #ccc;
 }
 
-.logo img { height: 60px; }
-.separator { width: 1px; height: 35px; background: #ccc; }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px; /* مسافة متساوية بين اللينكات */
+}
 
-.nav-links { display: flex; list-style: none; }
-.nav-links li { margin: 0 1.5rem; position: relative; }
+.nav-links li { position: relative; margin: 0; }
+
 
 .nav-links li a {
   font-weight: 500; color: #10454F;
@@ -51,11 +61,50 @@ nav {
 .nav-links li a:hover::after,
 .nav-links li a.active::after { width:100%; }
 
+/* ====== زر الهامبورجر ====== */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.menu-toggle span {
+  width: 25px; height: 3px;
+  background: #10454F;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .separator { display: none; }
+
+  .nav-links {
+    position: absolute;
+    top: 70px; right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    flex-direction: column;
+    align-items: flex-start;
+    width: 220px;
+    padding: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -2px 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.show { transform: translateX(0); }
+
+  .nav-links li { margin: 1rem 0; }
+
+  .menu-toggle { display: flex; }
+}
+
+
 /* =========================
    Section Titles (Shared)
 ========================= */
 .section-title, .section-title-skill, .section-title-contact {
-  font-family: "Lato";
+  font-family: "Lato", sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
   text-align: center;
@@ -68,64 +117,182 @@ nav {
   animation: fadeUp 0.8s ease forwards;
   position: relative;
 }
+
+/* Underline */
 .section-title::after,
 .section-title-skill::after,
 .section-title-contact::after {
   content: "";
   display: block;
-  width: 80px; height: 4px;
+  width: 80px;
+  height: 4px;
   margin: 12px auto 0;
   border-radius: 2px;
   background: linear-gradient(90deg, #007bff, #00c6ff);
   transition: width 0.3s ease;
 }
+
 .section-title:hover::after,
 .section-title-skill:hover::after,
-.section-title-contact:hover::after { width: 120px; }
+.section-title-contact:hover::after {
+  width: 120px;
+}
 
 /* ألوان حسب القسم */
 .section-title { color: #161B22; }
-.section-title-skill { color: #F7F9FA; margin-top: 150px; }
+.section-title-skill { color: #F7F9FA; margin-top: 80px; }
 .section-title-contact { color: #0b4a6b; }
+
+/* =========================
+   Responsive Tweaks
+========================= */
+@media (max-width: 992px) {
+  .section-title, .section-title-skill, .section-title-contact {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title, .section-title-skill, .section-title-contact {
+    font-size: 1.9rem;
+    margin: 20px 0 15px 0;
+  }
+  .section-title-skill { margin-top: 60px; }
+}
+
+@media (max-width: 480px) {
+  .section-title, .section-title-skill, .section-title-contact {
+    font-size: 1.6rem;
+    margin: 15px 0 12px 0;
+  }
+  .section-title-skill { margin-top: 40px; }
+}
+
 
 /* =========================
    About Me
 ========================= */
 #about {
-  display: flex; justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
   padding: 5% 5% 0;
   background-color: #F7F9FA;
   background-image: 
     linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
   background-size: 22px 22px;
+  flex-wrap: wrap; /* مهم عشان العناصر تقدر تنزل تحت */
 }
+
 #about .left {
-  flex:1; display:flex; flex-direction:column;
-  justify-content:center; align-items:flex-start;
-  padding-right:2%; margin-bottom:20px; 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 2%;
+  margin-bottom: 20px; 
+  min-width: 280px; /* يضمن إن المحتوى مايصغرش أوي */
 }
-#about .left h2 { font-size:4rem; color:#10454F; font-weight:700; }
-#about .left h3 { font-size:2.8rem; color:#13678A; font-weight:500; }
-#about .left p { font-size:1.2rem; color:#555; margin-bottom:1.5rem; }
 
+#about .right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#about .right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* النصوص */
+#about .left h2 {
+  font-size: 4rem;
+  color: #10454F;
+  font-weight: 700;
+}
+#about .left h3 {
+  font-size: 2.8rem;
+  color: #13678A;
+  font-weight: 500;
+}
+#about .left p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* الزرار */
 .resume-btn {
-  display:inline-block; margin:0.5rem 0; padding:0.5rem 1rem;
-  background:#13678A; color:#fff; border-radius:5px; font-weight:500;
-  transition:0.3s;
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background: #13678A;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: 0.3s;
 }
-.resume-btn:hover { background:#10454F; transform:translateY(-2px); }
+.resume-btn:hover {
+  background: #10454F;
+  transform: translateY(-2px);
+}
 
+/* روابط التواصل */
 .about-contact a {
-  display:inline-block; margin:0 0.4rem;
-  padding:0.5rem 0.7rem; border-radius:5px;
-  transition: transform 0.3s; color:#fff; font-size:1rem;
+  display: inline-block;
+  margin: 0 0.4rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  transition: transform 0.3s;
+  color: #fff;
+  font-size: 1rem;
 }
-.about-contact a:hover { transform:translateY(-3px); }
-.about-contact a.email { background:#D44638; }
-.about-contact a.linkedin { background:#0077B5; }
-.about-contact a.github { background:#333; }
-.about-contact a.whatsapp { background:#25D366; }
+.about-contact a:hover {
+  transform: translateY(-3px);
+}
+.about-contact a.email { background: #D44638; }
+.about-contact a.linkedin { background: #0077B5; }
+.about-contact a.github { background: #333; }
+.about-contact a.whatsapp { background: #25D366; }
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 992px) {
+  #about {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  #about .left {
+    align-items: center;
+    padding-right: 0;
+  }
+
+  #about .left h2 {
+    font-size: 2.5rem;
+  }
+
+  #about .left h3 {
+    font-size: 1.8rem;
+  }
+
+  #about .left p {
+    font-size: 1rem;
+  }
+
+  .about-contact {
+    margin-top: 1rem;
+  }
+}
+
 
 /* ========================= Skills Section ========================= */
 #skills {
@@ -339,6 +506,70 @@ nav {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+/* ========================= Responsive Skills ========================= */
+@media (max-width: 992px) {
+  .skills-container {
+    grid-template-columns: 1fr; /* عمود واحد بدل عمودين */
+    gap: 20px;
+    padding: 1.5rem;
+  }
+
+  .skills-list {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .skill-card {
+    padding: 10px 16px;
+    min-height: 60px;
+    max-height: 60px;
+  }
+
+  .skill-card i {
+    font-size: 1.5rem;
+  }
+
+  .skill-name {
+    font-size: 1rem;
+    width: auto;
+  }
+
+  .skills-image img,
+  .skill-details {
+    min-height: 250px;
+    max-height: 250px;
+  }
+
+  .section-title-skill {
+    font-size: 2rem;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .skill-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 12px;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .skill-card::after {
+    display: none; /* نخفي "Click for more" في الشاشات الصغيرة */
+  }
+
+  .skills-image img,
+  .skill-details {
+    min-height: 200px;
+    max-height: 200px;
+  }
+
+  .section-title-skill {
+    font-size: 1.6rem;
+  }
+}
 
 /* =========================
    Projects Section
@@ -481,6 +712,61 @@ nav {
   right: 20px;
 }
 
+/* ========================= Responsive Projects ========================= */
+
+/* للشاشات المتوسطة (تابلت ~992px) */
+@media (max-width: 992px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 أعمدة بدل 3 */
+    gap: 1rem;
+  }
+
+  .project {
+    max-width: 100%;
+    min-height: 350px;
+    max-height: none;
+  }
+
+  .project img {
+    height: 160px;
+  }
+
+  .project h3 {
+    font-size: 1.1rem;
+  }
+
+  .project p {
+    font-size: 0.85rem;
+  }
+}
+
+/* للشاشات الصغيرة (موبايل ~576px) */
+@media (max-width: 576px) {
+  .projects-container {
+    grid-template-columns: 1fr; /* عمود واحد */
+    gap: 1rem;
+  }
+
+  .project {
+    min-height: auto;
+    max-height: none;
+    padding: 1rem;
+  }
+
+  .project img {
+    height: 150px;
+  }
+
+  .project h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .project p {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+}
 
 
 /* =========================
@@ -498,6 +784,61 @@ nav {
 .edu-item span { color:#777; font-size:0.9rem; }
 .edu-item p { color:#555; font-size:0.95rem; }
 
+/* ========================= Responsive Education ========================= */
+@media (max-width: 992px) {
+  .edu-container {
+    max-width: 90%;   /* بدل 800px */
+    margin: 1.5rem auto;
+  }
+
+  .edu-item {
+    padding: 1.5rem;
+  }
+
+  .edu-item h3 {
+    font-size: 1.3rem;
+  }
+
+  .edu-item span {
+    font-size: 0.85rem;
+  }
+
+  .edu-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .edu-container {
+    max-width: 95%;
+    margin: 1rem auto;
+  }
+
+  .edu-item {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .edu-item h3 {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .edu-item span {
+    font-size: 0.8rem;
+    display: block;
+    text-align: center;
+    margin-top: 0.3rem;
+  }
+
+  .edu-item p {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+
 /* =========================
    Contact Section
 ========================= */
@@ -513,13 +854,57 @@ nav {
 .contact-container a.github { background:#333; }
 .contact-container a.whatsapp { background:#25D366; }
 
-/* =========================
-   Footer
-========================= */
-footer {
-  text-align:center; padding:1rem 0;
-  background:#F7F9FA; color:#555;
+/* ========================= Responsive Contact ========================= */
+@media (max-width: 768px) {
+  .contact-container {
+    display: flex;
+    flex-direction: column; /* نخلي الأزرار تحت بعض */
+    align-items: center;
+    gap: 12px;
+    padding: 1.5rem 0;
+  }
+
+  .contact-container a {
+    width: 80%; /* يخلي الزرار أعرض */
+    max-width: 300px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
 }
+
+@media (max-width: 480px) {
+  .contact-container a {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+}
+
+
+/* ========================= Responsive Footer ========================= */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #F7F9FA;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 1.3rem 0;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 1.5rem 0;
+    font-size: 0.85rem;
+  }
+}
+
 
 /* =========================
    Section Divider
@@ -530,10 +915,44 @@ section {
   position: relative;
   z-index: 1;
 }
-section::after {
-  content:""; position:absolute; bottom:0; left:50%;
-  transform:translateX(-50%);
-  width:80%; height:1px;
-  background:linear-gradient(90deg,transparent,#13678A,transparent);
-  opacity:0.4;
+
+/* Divider */
+section:not(:last-of-type)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #13678A, transparent);
+  opacity: 0.4;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 992px) {
+  section {
+    padding: 50px 15px;
+  }
+  section:not(:last-of-type)::after {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 15px;
+  }
+  section:not(:last-of-type)::after {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 30px 10px;
+  }
+  section:not(:last-of-type)::after {
+    width: 95%;
+  }
 }
